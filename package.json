@@ -1,0 +1,15 @@
+{
+  "name": "castelia-platform",
+  "version": "2.0.0",
+  "description": "Castelia platform — virtual interior designer with 3 modes (self-serve masks, 5-question designer, professional AI chat). Prototype 2.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0"
+  }
+}
