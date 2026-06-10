@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>CASTELIA — виртуальный дизайнер интерьера</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="ms_header">
+    <div class="ms_logo" id="logoHome" title="На главную">
+      <img src="logo.svg" alt="Castelia" class="ms_logo_img" id="logoImg"
+           onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';">
+      <div class="ms_logo_fallback" id="logoFallback" style="display:none;">
+        <span class="ms_logo_orb"></span>
+        <div class="ms_logo_txt">
+          <div class="ms_logo_title">CASTELIA</div>
+          <div class="ms_logo_sub">Виртуальный дизайнер</div>
+        </div>
+      </div>
+    </div>
+    <button class="ms_btn ms_btn_ghost" id="backBtn" hidden>← В начало</button>
+  </header>
+
+  <main class="ms_main">
+
+    <!-- ================= SCREEN: HOME (выбор режима) ================= -->
+    <section class="ms_screen ms_home" id="screen-home">
+      <div class="ms_hero_top">
+        <div class="ms_hero_pretitle"><span class="ms_hero_dot"></span><span>Виртуальный дизайнер Castelia</span></div>
+        <h1 class="ms_hero_title">Создай дизайн<br><span class="ms_gradient">за 1 минуту</span></h1>
+        <p class="ms_hero_lede">
+          Загрузите фото комнаты — и примерьте на стены гибкий камень Castelia.
+          Выберите, как вам удобнее: сделать самому, ответить на пару вопросов или поговорить с ИИ-дизайнером.
+        </p>
+      </div>
+
+      <div class="ms_modes">
+        <button class="ms_mode_card" data-mode="designer">
+          <span class="ms_card_shine"></span>
+          <div class="ms_mode_top">
+            <div class="ms_mode_icon"><span class="ms_mode_icon_orb"></span><span class="ms_mode_icon_glyph">✨</span></div>
+            <div class="ms_mode_live"><span class="ms_live_dot"></span>популярно · 5 кликов</div>
+          </div>
+          <div class="ms_mode_name">Дизайнер интерьера</div>
+          <div class="ms_mode_desc">Ответьте на 5 простых вопросов — ИИ подберёт стиль и материалы и покажет результат на вашем фото.</div>
+          <!-- живое мини-превью: квиз -->
+          <div class="ms_prev ms_prev_quiz">
+            <div class="ms_prev_chips">
+              <span class="ms_prev_chip" style="background-image:url('https://raw.githubusercontent.com/uuuucnex-rgb/casteliaCATALOG/refs/heads/main/Roman_pillar_milan_red.jpg')"></span>
+              <span class="ms_prev_chip" style="background-image:url('https://raw.githubusercontent.com/uuuucnex-rgb/casteliaCATALOG/refs/heads/main/Marble_Bianco_Carara.png')"></span>
+              <span class="ms_prev_chip" style="background-image:url('https://raw.githubusercontent.com/uuuucnex-rgb/casteliaCATALOG/refs/heads/main/Crude%20wood_LIGHT_BROWN.jpg')"></span>
+              <span class="ms_prev_chip" style="background-image:url('https://raw.githubusercontent.com/uuuucnex-rgb/casteliaCATALOG/refs/heads/main/Ando%20%26%20zen%20cement_CEMENT_GREY.jpg')"></span>
+            </div>
+            <div class="ms_prev_dots"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="ms_mode_cta">Запустить подбор <span class="ms_cta_arrow">→</span></div>
+        </button>
+
+        <button class="ms_mode_card" data-mode="chat">
+          <span class="ms_card_shine"></span>
+          <div class="ms_mode_top">
+            <div class="ms_mode_icon"><span class="ms_mode_icon_orb"></span><span class="ms_mode_icon_glyph">💬</span></div>
+            <div class="ms_mode_live"><span class="ms_live_dot"></span>ИИ онлайн</div>
+          </div>
+          <div class="ms_mode_name">Профессиональный ИИ</div>
+          <div class="ms_mode_desc">Живой диалог с ИИ-дизайнером. Назовите стиль — он сразу предложит подходящие материалы и визуализирует их.</div>
+          <!-- живое мини-превью: чат -->
+          <div class="ms_prev ms_prev_chat">
+            <div class="ms_prev_bubble ms_prev_b_user">хочу лофт</div>
+            <div class="ms_prev_bubble ms_prev_b_ai"><i></i><i></i><i></i></div>
+            <div class="ms_prev_matrow">
+              <span class="ms_prev_mat" style="background-image:url('https://raw.githubusercontent.com/uuuucnex-rgb/casteliaCATALOG/refs/heads/main/Roman_pillar_milan_red.jpg')"></span>
+              <span class="ms_prev_mat" style="background-image:url('https://raw.githubusercontent.com/uuuucnex-rgb/casteliaCATALOG/refs/heads/main/Rust%20Board_BUSH_HUMMERED.jpg')"></span>
+            </div>
+          </div>
+          <div class="ms_mode_cta">Открыть чат <span class="ms_cta_arrow">→</span></div>
+        </button>
+
+        <button class="ms_mode_card" data-mode="self">
+          <span class="ms_card_shine"></span>
+          <div class="ms_mode_top">
+            <div class="ms_mode_icon"><span class="ms_mode_icon_orb"></span><span class="ms_mode_icon_glyph">🖌️</span></div>
+            <div class="ms_mode_live"><span class="ms_live_dot"></span>полный контроль</div>
+          </div>
+          <div class="ms_mode_name">Самостоятельно</div>
+          <div class="ms_mode_desc">Сами кистью отметьте, где какой материал должен лежать. Точный режим — для менеджеров и профи.</div>
+          <!-- живое мини-превью: кисть по стене -->
+          <div class="ms_prev ms_prev_brush">
+            <div class="ms_prev_room">
+              <span class="ms_prev_wall"></span>
+              <span class="ms_prev_mask"></span>
+              <span class="ms_prev_cursor"></span>
+            </div>
+          </div>
+          <div class="ms_mode_cta">Рисовать маски <span class="ms_cta_arrow">→</span></div>
+        </button>
+      </div>
+
+      <!-- ============ ПОКАЗ «БЫЛО → СТАЛО» ============ -->
+      <section class="ms_showcase">
+        <div class="ms_showcase_head">
+          <div class="ms_screen_eyebrow">✦ Демонстрация движка</div>
+          <h2 class="ms_showcase_title">Было&nbsp;→&nbsp;стало за минуту</h2>
+          <p class="ms_showcase_sub">Потяните ползунок — это реальная генерация Castelia на одном фото. Переключите стиль ниже.</p>
+        </div>
+
+        <div class="ms_ba" id="baSlider">
+          <div class="ms_ba_frame" id="baFrame">
+            <img class="ms_ba_img ms_ba_after" id="baAfter" src="demo/after1_lux.png?v=2" alt="После">
+            <img class="ms_ba_img ms_ba_before" id="baBefore" src="demo/before1.png" alt="До">
+            <div class="ms_ba_divider" id="baDivider"></div>
+            <div class="ms_ba_handle" id="baHandle" aria-label="Потяните">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"/><polyline points="9 6 15 12 9 18" transform="translate(-6 0)"/></svg>
+            </div>
+            <div class="ms_ba_tag ms_ba_tag_before">ДО</div>
+            <div class="ms_ba_tag ms_ba_tag_after">ПОСЛЕ · CASTELIA</div>
+          </div>
+          <div class="ms_ba_styles" id="baStyles">
+            <button class="ms_ba_chip ms_on" data-after="demo/after1_lux.png?v=2">💎 Лакшери · чёрный мрамор</button>
+            <button class="ms_ba_chip" data-after="demo/after1_loft.png">🧱 Лофт · красный кирпич</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="ms_home_foot">15 коллекций гибкого камня · мрамор, травертин, бетон, дерево, кирпич, металл</div>
+    </section>
+
+    <!-- ================= SCREEN: SELF (маски) ================= -->
+    <section class="ms_screen" id="screen-self" hidden>
+      <div class="ms_screen_head">
+        <div class="ms_screen_eyebrow">🖌️ Самостоятельно</div>
+        <h2 class="ms_screen_title">Отметьте кистью, куда лечь материалу</h2>
+        <p class="ms_screen_sub" id="selfSub">Загрузите фото, выберите до 3 материалов и закрасьте на фото нужные зоны.</p>
+      </div>
+
+      <div class="ms_stage" id="selfStage">
+        <div class="ms_drop" id="dropZone">
+          <div class="ms_drop_icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 16V4M12 4l-5 5M12 4l5 5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+            </svg>
+          </div>
+          <div class="ms_drop_title">Загрузите фото</div>
+          <div class="ms_drop_sub">Перетащите файл сюда или нажмите для выбора</div>
+          <div class="ms_drop_actions">
+            <button class="ms_btn ms_btn_gold" id="pickFileBtn">Выбрать файл</button>
+            <button class="ms_btn ms_btn_ghost" id="pickCamBtn">📷 Камера</button>
+          </div>
+          <div class="ms_drop_hint">JPG · PNG · HEIC · до 15 МБ</div>
+          <input type="file" id="fileInput" accept="image/*,.heic,.heif" style="display:none">
+          <input type="file" id="camInput" accept="image/*,.heic,.heif" capture="environment" style="display:none">
+        </div>
+
+        <div class="ms_canvas_stack" id="canvasStack" hidden>
+          <canvas id="baseCanvas"></canvas>
+          <canvas id="maskCanvas1" class="ms_mask_canvas"></canvas>
+          <canvas id="maskCanvas2" class="ms_mask_canvas"></canvas>
+          <canvas id="maskCanvas3" class="ms_mask_canvas"></canvas>
+        </div>
+      </div>
+
+      <div class="ms_slots" id="slotsRow"></div>
+
+      <div class="ms_tools" id="toolsRow">
+        <div class="ms_tool_group">
+          <span class="ms_tool_label">Размер</span>
+          <input type="range" id="brushSize" min="8" max="100" value="35" class="ms_slider" disabled>
+          <span class="ms_brush_preview" id="brushPreview"></span>
+        </div>
+        <div class="ms_tool_group">
+          <button class="ms_tool_btn" id="toolBrush" data-active="true" title="Кисть" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3L17.7 9.3M3 21l4.5-1.5L18.5 8.5a2 2 0 0 0 0-2.8L19 5l-3-3-1 0.5a2 2 0 0 0-2.8 0L1.5 13.5 3 21z"/></svg>
+            <span>Кисть</span>
+          </button>
+          <button class="ms_tool_btn" id="toolEraser" title="Ластик" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6 6h12M14 14l8 8M20 20H8L2 14l9-9 10 10z"/></svg>
+            <span>Ластик</span>
+          </button>
+          <button class="ms_tool_btn" id="toolUndo" title="Отменить" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+          </button>
+          <button class="ms_tool_btn" id="toolClear" title="Очистить слой" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/></svg>
+          </button>
+        </div>
+        <button class="ms_btn ms_btn_ghost ms_designer_btn" id="selfAutoBtn" disabled title="ИИ-дизайнер сам решит где разместить материалы">
+          <span>🪄 Дизайнер сам разместит</span>
+        </button>
+        <button class="ms_btn ms_btn_gold ms_generate" id="generateBtn" disabled><span>✦ Сгенерировать</span></button>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN: DESIGNER (5 вопросов) ================= -->
+    <section class="ms_screen" id="screen-designer" hidden>
+      <div class="ms_screen_head">
+        <div class="ms_screen_eyebrow">✨ Дизайнер интерьера</div>
+        <h2 class="ms_screen_title" id="dzTitle">Несколько простых вопросов</h2>
+        <p class="ms_screen_sub" id="dzSub">Отвечайте, нажимая на карточки — это займёт минуту.</p>
+      </div>
+
+      <div class="ms_dz_progress" id="dzProgress"></div>
+
+      <div class="ms_dz_stage" id="dzStage"><!-- шаги рендерятся из JS --></div>
+    </section>
+
+    <!-- ================= SCREEN: CHAT (профессиональный ИИ) ================= -->
+    <section class="ms_screen" id="screen-chat" hidden>
+      <div class="ms_screen_head">
+        <div class="ms_screen_eyebrow">💬 Профессиональный ИИ</div>
+        <h2 class="ms_screen_title">Чат с ИИ-дизайнером</h2>
+        <p class="ms_screen_sub">Напишите, что задумали — например «лофт в гостиной». Можно приложить фото комнаты.</p>
+      </div>
+
+      <div class="ms_chat" id="chatBox">
+        <div class="ms_chat_log" id="chatLog"></div>
+        <div class="ms_chat_tray" id="chatTray" hidden></div>
+        <div class="ms_chat_input">
+          <button class="ms_chat_attach" id="chatAttachBtn" title="Приложить фото комнаты">📎</button>
+          <input type="file" id="chatFile" accept="image/*,.heic,.heif" style="display:none">
+          <input type="text" id="chatText" placeholder="Например: хочу классику в спальне…" autocomplete="off">
+          <button class="ms_chat_send" id="chatSendBtn" title="Отправить">➤</button>
+        </div>
+        <div class="ms_chat_photohint" id="chatPhotoHint" hidden>📷 Фото комнаты приложено</div>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN: RESULT (общий) ================= -->
+    <section class="ms_screen ms_screen_result" id="screen-result" hidden>
+      <div class="ms_screen_head">
+        <div class="ms_screen_eyebrow" id="resultEyebrow">✦ Готово</div>
+        <h2 class="ms_screen_title">Ваш дизайн готов</h2>
+        <p class="ms_screen_sub" id="resultSub">Так гибкий камень Castelia смотрится на ваших стенах.</p>
+      </div>
+      <div class="ms_result_view">
+        <img id="resultImage" alt="Результат">
+      </div>
+      <div class="ms_result_actions" id="resultActions">
+        <button class="ms_btn ms_btn_ghost" id="touchupBtn" hidden>🖌 Подправить</button>
+        <button class="ms_btn ms_btn_ghost" id="resultAgainBtn">↻ Другой вариант</button>
+        <button class="ms_btn ms_btn_gold" id="downloadBtn">⬇ Скачать PNG</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= LOADING OVERLAY (общий) ================= -->
+  <div class="ms_loading" id="loadingOverlay" hidden>
+    <div class="ms_loading_card">
+      <div class="ms_loader_orb"></div>
+      <div class="ms_progress"><div class="ms_progress_bar" id="progressBar"></div></div>
+      <div class="ms_loader_stage" id="loaderStage">Анализ фото</div>
+      <div class="ms_loader_hint">Готовим визуализацию · обычно 30–90 сек</div>
+      <div class="ms_tip">
+        <div class="ms_tip_label">А вы знали?</div>
+        <div class="ms_tip_text" id="loaderTipText">…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MATERIAL PICKER (общий) ================= -->
+  <div class="ms_picker" id="materialPicker" hidden>
+    <div class="ms_picker_inner">
+      <div class="ms_picker_head">
+        <div>
+          <div class="ms_picker_eyebrow" id="pickerEyebrow">КАТАЛОГ</div>
+          <h4 id="pickerTitle">Выберите материал</h4>
+        </div>
+        <button class="ms_picker_close" id="pickerClose">×</button>
+      </div>
+      <div class="ms_picker_filters" id="pickerFilters"></div>
+      <div class="ms_picker_grid" id="pickerGrid"></div>
+    </div>
+  </div>
+
+  <div class="ms_toast" id="errorToast" hidden></div>
+
+  <script src="catalog.js"></script>
+  <script src="app.js"></script>
+  <script src="designer.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
