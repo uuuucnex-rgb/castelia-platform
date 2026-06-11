@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>CASTELIA — виртуальный дизайнер интерьера</title>
+  <title>CASTELIA — виртуальный дизайнер интерьера и фасадов</title>
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
         <div class="ms_hero_pretitle"><span class="ms_hero_dot"></span><span>Виртуальный дизайнер Castelia</span></div>
         <h1 class="ms_hero_title">Создай дизайн<br><span class="ms_gradient">за 1 минуту</span></h1>
         <p class="ms_hero_lede">
-          Загрузите фото комнаты — и примерьте на стены гибкий камень Castelia.
+          Загрузите фото комнаты или фасада дома — и примерьте на стены гибкий камень Castelia.
           Выберите, как вам удобнее: сделать самому, ответить на пару вопросов или поговорить с ИИ-дизайнером.
         </p>
       </div>
@@ -49,7 +49,7 @@
             <div class="ms_mode_live"><span class="ms_live_dot"></span>популярно · 5 кликов</div>
           </div>
           <div class="ms_mode_name">Дизайнер интерьера</div>
-          <div class="ms_mode_desc">Ответьте на 5 простых вопросов — ИИ подберёт стиль и материалы и покажет результат на вашем фото.</div>
+          <div class="ms_mode_desc">Ответьте на 5 простых вопросов — ИИ подберёт стиль и материалы для интерьера или фасада дома и покажет результат на вашем фото.</div>
           <!-- живое мини-превью: квиз -->
           <div class="ms_prev ms_prev_quiz">
             <div class="ms_prev_chips">
@@ -200,7 +200,7 @@
     <!-- ================= SCREEN: DESIGNER (5 вопросов) ================= -->
     <section class="ms_screen" id="screen-designer" hidden>
       <div class="ms_screen_head">
-        <div class="ms_screen_eyebrow">✨ Дизайнер интерьера</div>
+        <div class="ms_screen_eyebrow">✨ Дизайнер интерьера и фасада</div>
         <h2 class="ms_screen_title" id="dzTitle">Несколько простых вопросов</h2>
         <p class="ms_screen_sub" id="dzSub">Отвечайте, нажимая на карточки — это займёт минуту.</p>
       </div>
@@ -215,19 +215,19 @@
       <div class="ms_screen_head">
         <div class="ms_screen_eyebrow">💬 Профессиональный ИИ</div>
         <h2 class="ms_screen_title">Чат с ИИ-дизайнером</h2>
-        <p class="ms_screen_sub">Напишите, что задумали — например «лофт в гостиной». Можно приложить фото комнаты.</p>
+        <p class="ms_screen_sub">Напишите, что задумали — например «лофт в гостиной» или «фасад дома в современном стиле». Можно приложить фото комнаты или фасада.</p>
       </div>
 
       <div class="ms_chat" id="chatBox">
         <div class="ms_chat_log" id="chatLog"></div>
         <div class="ms_chat_tray" id="chatTray" hidden></div>
         <div class="ms_chat_input">
-          <button class="ms_chat_attach" id="chatAttachBtn" title="Приложить фото комнаты">📎</button>
+          <button class="ms_chat_attach" id="chatAttachBtn" title="Приложить фото комнаты или фасада">📎</button>
           <input type="file" id="chatFile" accept="image/*,.heic,.heif" style="display:none">
-          <input type="text" id="chatText" placeholder="Например: хочу классику в спальне…" autocomplete="off">
+          <input type="text" id="chatText" placeholder="Например: классика в спальне или фасад дома…" autocomplete="off">
           <button class="ms_chat_send" id="chatSendBtn" title="Отправить">➤</button>
         </div>
-        <div class="ms_chat_photohint" id="chatPhotoHint" hidden>📷 Фото комнаты приложено</div>
+        <div class="ms_chat_photohint" id="chatPhotoHint" hidden>📷 Фото приложено</div>
       </div>
     </section>
 
