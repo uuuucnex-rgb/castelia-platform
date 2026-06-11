@@ -19,7 +19,7 @@
   const chatFile = $('chatFile');
   const chatPhotoHint = $('chatPhotoHint');
 
-  const GREETING = 'Здравствуйте! Я Кастелия, ваш ИИ-дизайнер 🤍 Расскажите, что задумали — например «лофт в гостиной» или «тёплая классика в спальне». Можно приложить фото комнаты 📎, и я покажу материалы прямо на ваших стенах.';
+  const GREETING = 'Здравствуйте! Я Кастелия, ваш ИИ-дизайнер 🤍 Помогу и с интерьером, и с фасадом дома. Расскажите, что задумали — например «лофт в гостиной» или «современный фасад загородного дома». Можно приложить фото комнаты или фасада 📎, и я покажу материалы прямо на ваших стенах.';
 
   const st = {
     history: [],        // [{role:'user'|'assistant', content}]
@@ -53,7 +53,7 @@
   function scrollDown() { chatLog.scrollTop = chatLog.scrollHeight; }
   function addUser(text) { const el = document.createElement('div'); el.className = 'ms_msg ms_msg_user'; el.textContent = text; chatLog.appendChild(el); scrollDown(); }
   function addAI(text) { const el = document.createElement('div'); el.className = 'ms_msg ms_msg_ai'; el.textContent = text; chatLog.appendChild(el); scrollDown(); return el; }
-  function addUserImage(dataUrl) { const el = document.createElement('div'); el.className = 'ms_msg_img'; el.innerHTML = `<img src="${dataUrl}" alt="фото комнаты">`; chatLog.appendChild(el); scrollDown(); }
+  function addUserImage(dataUrl) { const el = document.createElement('div'); el.className = 'ms_msg_img'; el.innerHTML = `<img src="${dataUrl}" alt="фото объекта">`; chatLog.appendChild(el); scrollDown(); }
   function showTyping() { const el = document.createElement('div'); el.className = 'ms_msg_typing'; el.id = 'chatTyping'; el.innerHTML = '<span class="ms_typing_dot"></span><span class="ms_typing_dot"></span><span class="ms_typing_dot"></span>'; chatLog.appendChild(el); scrollDown(); }
   function hideTyping() { const el = $('chatTyping'); if (el) el.remove(); }
 
@@ -107,7 +107,7 @@
       addUserImage(st.image.dataUrl);
       renderTray();
       // авто-реплика, чтобы ИИ отреагировал на фото
-      sendText('Вот фото моей комнаты, помогите с дизайном.');
+      sendText('Вот моё фото, помогите с дизайном.');
     } catch (e) { CST.showError(e.message); }
   }
 
@@ -146,7 +146,7 @@
 
   // ---------- визуализация ----------
   function visualize() {
-    if (!st.image) { CST.showError('Сначала приложите фото комнаты'); return; }
+    if (!st.image) { CST.showError('Сначала приложите фото комнаты или фасада'); return; }
     if (!st.selected.length) { CST.showError('Выберите материалы из предложенных'); return; }
     const mats = st.selected.slice(0, 3).map((m) => ({ materialUrl: m.imageUrl, materialName: m.name }));
     CST.showLoading();
@@ -157,7 +157,7 @@
       if (!d.resultDataUrl) throw new Error('Пустой ответ');
       CST.showResult(d.resultDataUrl, {
         eyebrow: '💬 Подбор из чата',
-        sub: 'Выбранные материалы на ваших стенах. Не то? Вернитесь в чат и попросите другие.',
+        sub: 'Применили: ' + st.selected.map((m) => m.name).join(', ') + '. Не то? Вернитесь в чат и попросите другие.',
         againLabel: '← Вернуться в чат',
         onAgain: () => CST.enterChat(),
         backTo: 'home'
