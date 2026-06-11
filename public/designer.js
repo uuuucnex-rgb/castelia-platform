@@ -55,13 +55,13 @@
 
   // ---------- ШАГ: фото ----------
   function renderPhoto() {
-    setHead('Покажите вашу комнату', 'Загрузите фото — на нём ИИ-дизайнер и покажет результат. Дальше всего 5 простых вопросов.');
+    setHead('Покажите комнату или фасад', 'Загрузите фото комнаты или фасада дома — на нём ИИ-дизайнер и покажет результат. Дальше всего 5 простых вопросов.');
     dzStage.innerHTML = '';
     const drop = document.createElement('div');
     drop.className = 'ms_drop'; drop.style.maxWidth = '560px'; drop.style.margin = '0 auto';
     drop.innerHTML =
       '<div class="ms_drop_icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M12 4l-5 5M12 4l5 5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>' +
-      '<div class="ms_drop_title">Загрузите фото комнаты</div>' +
+      '<div class="ms_drop_title">Загрузите фото комнаты или фасада</div>' +
       '<div class="ms_drop_sub">Перетащите файл сюда или нажмите для выбора</div>' +
       '<div class="ms_drop_actions">' +
         '<button class="ms_btn ms_btn_gold" id="dzPick">Выбрать файл</button>' +
@@ -150,7 +150,7 @@
     dzStage.innerHTML =
       '<div class="ms_dz_reco"><div class="ms_dz_reco_card" style="text-align:center">' +
       '<div class="ms_loader_orb" style="width:70px;height:70px;margin:6px auto 16px"></div>' +
-      '<div class="ms_dz_reco_advice">Изучаю стиль и палитру, подбираю гибкий камень Castelia под вашу комнату…</div>' +
+      '<div class="ms_dz_reco_advice">Изучаю стиль и палитру, подбираю гибкий камень Castelia под ваш интерьер или фасад…</div>' +
       '</div></div>';
   }
 
